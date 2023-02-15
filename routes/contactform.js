@@ -33,7 +33,7 @@ router.post(
         await gsheet.appendRow(row, "contact-form-data!A:E");
 
         res.status(200);
-        res.end();
+        res.json({ success: true });
     })
 );
 
