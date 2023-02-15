@@ -2,7 +2,7 @@ import { google } from "googleapis";
 import fs from "fs";
 
 const credentials = JSON.parse(
-    fs.readFileSync("./etc/secrets/googlesheet-key.json")
+    fs.readFileSync("/etc/secrets/googlesheet-key.json")
 );
 class GoogleSheet {
     constructor(spreadSheetId) {
