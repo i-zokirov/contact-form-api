@@ -16,7 +16,9 @@ router.post(
     "/contactform",
 
     asyncHandler(async (req, res) => {
-        console.log(req.body);
+        if (req.query.auth !== process.env.auth) {
+            throw new Error("Not Authorized");
+        }
         const { body, senderEmail, senderName } = req.body;
         const newContact = {
             name: senderName,
