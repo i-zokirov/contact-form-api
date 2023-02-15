@@ -19,11 +19,12 @@ router.post(
         if (req.query.auth !== process.env.auth) {
             throw new Error("Not Authorized");
         }
-        const { body, senderEmail, senderName } = req.body;
+        const { message, email, name } = req.body;
+
         const newContact = {
-            name: senderName,
-            email: senderEmail,
-            message: body,
+            name,
+            email,
+            message,
             state: "new",
             date: moment(new Date()).format("LLL"),
         };
